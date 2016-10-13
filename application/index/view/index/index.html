@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bowuting's Home Page</title>
+	<link rel="icon" href="/static/img/icon.png">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/blog.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/com.css">
+	<style media="screen">
+		#index{
+			color: #555;
+			cursor: default;
+			background-color: #eee;
+			border: 1px solid #ddd;
+			border-bottom-color: transparent;
+		}
+	</style>
+
+
+
+		{include file="../application/index/view/default/public/header.html" /}
+
+	<body>
+		<div class="container">
+			<hr>
+			<div class="">
+				<img id="img"class="img-responsive" src="/static/img/index-1.jpeg" onclick="change()" alt="" />
+
+			</div>
+
+		</div>
+		<hr>
+		{include file="../application/index/view/default/public/footer.html" /}
+
+	</body>
+	<script type="text/javascript">
+	function change() {
+
+		var r = Math.ceil(Math.random()*3);
+		var arr=new Array();
+		arr[1]="/static/img/index-1.jpeg";
+		arr[2]="/static/img/index-2.jpeg";
+		arr[3]="/static/img/index-3.jpeg";
+
+		// console.log(arr[r]);
+
+
+		document.getElementById('img').src = arr[r];
+
+	}
+
+
+
+	</script>
+</html>
