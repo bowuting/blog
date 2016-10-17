@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/static/message.css">
 
         <link rel="icon" href="/static/img/icon.png">
-            <style media="screen">
+        <style media="screen">
 
         #message{
             color: #555;
@@ -20,6 +20,22 @@
             border-bottom-color: transparent;
         }
         </style>
+        <script type="text/javascript">
+        function validateForm()
+        {
+            var x=document.forms["message"]["msg_username"].value;
+            var y=document.forms["message"]["msg_content"].value;
+
+            if (x==null || x=="" )
+            {
+                alert("您还没又填写完整");
+                return false;
+            } else if (y==null || y=="") {
+                alert("您还没又填写完整");
+                return false;
+            }
+        }
+        </script>
     </head>
     {include file="../application/index/view/default/public/header.html" /}
     <body>
@@ -44,7 +60,7 @@
 
 
 
-                    <form class="text-center" action="{:url('messageAction')}" method="post">
+                    <form name="message" class="text-center" action="{:url('messageAction')}" onsubmit="return validateForm()" method="post">
                         <div class="input-group">
                           <span class="input-group-addon"></span>
                           <input name="msg_username"type="text" class="form-control" placeholder="Username">
@@ -52,7 +68,7 @@
 
                         <div class="input-group">
                             <span class="input-group-addon"></span>
-                          <input name="msg_email"type="text" class="form-control" placeholder="Email">
+                          <input name="msg_email"type="email" class="form-control" placeholder="Email">
                         </div>
 
                         <div class="input-group">
@@ -68,7 +84,6 @@
 
                 {include file="../application/index/view/default/public/right.html" /}
 
-
             </div>
 
 
@@ -79,6 +94,7 @@
 </body>
 
 {include file="../application/index/view/default/public/footer.html" /}
+
 
 
 </html>
