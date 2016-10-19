@@ -31,12 +31,12 @@
             <div class="col-md-12">
                     <form action="{:url('update')}" method="post" class="text-center">
 
-                            <input class="text-center" style="width:340px;height:50px;"type="text" name="post_title" value="{$arr['post_title']}" />
-                            
-                            <input class="text-center" style="width:340px;height:50px;"type="hidden" name="post_id" value="{$arr['post_id']}" />
+                            <input class="text-center" style="width:340px;height:50px;"type="text" name="post_title" value="{$data->post_title}" />
+
+                            <input class="text-center" style="width:340px;height:50px;"type="hidden" name="post_id" value="{$data->post_id}" />
                             <hr>
                             <textarea name="post_content" id="textarea1" style="width:80%;height:800px;">
-                                <p>{$arr['post_content']}</p>
+                                <p>{$data->post_content}</p>
                             </textarea>
                             <hr>
                             <button class="btn btn-success btn-lg" type="submit"><i class="glyphicon glyphicon-circle-arrow-up"></i>&nbsp;提交</button>

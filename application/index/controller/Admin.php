@@ -25,6 +25,8 @@ class Admin extends Controller
             $delete_msg_data = MessageModel::onlyTrashed()->select();
             $this->assign('msgdata', $msgdata);
             $this->assign('delete_msg_data',$delete_msg_data);
+
+
             $htmls = $this->fetch();
 
             return $htmls;
@@ -112,10 +114,17 @@ class Admin extends Controller
         }
 
         public function edit(){
-            $arr = PostsModel::postContent($_GET['post_id']);
-            // print_r($arr);
-            $this->assign('arr',$arr);
+            // $arr = PostsModel::postContent($_GET['post_id']);
+            // // print_r($arr);
+            // $this->assign('arr',$arr);
+            // $htmls = $this->fetch();
+            // return $htmls;
+
+            $data = PostsModel::get($_GET['post_id']);
+
+            $this->assign('data',$data);
             $htmls = $this->fetch();
+
             return $htmls;
         }
 

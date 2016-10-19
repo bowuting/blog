@@ -16,9 +16,15 @@
             $message = new MessageModel;
 
             $datas = $message->order('update_time', 'desc')->paginate(3);
-
+            $date = PostsModel::order('create_time', 'desc')->column('create_time');
+            foreach ($date as $k => $v) {
+                $date[$k] = date("Y/m",$v);
+            }
             $this->assign('datas', $datas);
 
+            $date = array_unique($date);
+
+            $this->assign('date', $date);
             $htmls = $this->fetch();
 
             return $htmls;

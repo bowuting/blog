@@ -18,24 +18,34 @@ class Index extends Controller
 
         $Posts = new PostsModel;
         if (isset($_POST['find'])) {
-            // print_r($_POST);
-            $find = $_POST['find'];
-            $data = $Posts->where('post_title', 'like', '%' . $find . '%')->paginate(5);
-            //  print_r($data);
+
+            $title = $_POST['find'];
+            $data = $Posts->find_post4title($title);
+
              if($data->isEmpty()){
                  $this->error('找不到您所查找的内容');
              }
 
         } else {
-            $data = $Posts->order('post_id', 'desc')->paginate(5);
+            $data = $Posts->find_all_posts();
         }
 
-
+        $date = PostsModel::get_right_month();
 
         $this->assign('data', $data);
+        $this->assign('date', $date);
 
+        $htmls = $this->fetch();
+        return $htmls;
+    }
 
+    public function month_post(){
 
+        $data = PostsModel::get_month_post($_GET['month']);
+        $date = PostsModel::get_right_month();
+
+        $this->assign('date', $date);
+        $this->assign('data', $data);
         $htmls = $this->fetch();
 
         return $htmls;
@@ -44,11 +54,7 @@ class Index extends Controller
     public function post(){
 
         $data = PostsModel::get($_GET['post_id']);
-        // print_r($data);
-        // echo $data->post_content;
-        // exit();
-        // $arr = PostsModel::postContent($_GET['post_id']);
-        // print_r($arr);
+
         $this->assign('data',$data);
         $htmls = $this->fetch();
 
@@ -56,12 +62,14 @@ class Index extends Controller
 
     }
 
-    public function find(){
-
-        }
-
     public function photo(){
+        $date = PostsModel::get_right_month();
+
+        $this->assign('date', $date);
+
         $htmls = $this->fetch();
+
+
 
         return $htmls;
     }

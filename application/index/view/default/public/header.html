@@ -7,15 +7,14 @@
             <li id="photo"><a href="http://bowuting.com/index/index/photo.html">相册</a></li>
             <li id="about"><a href="http://bowuting.com/index/index/about.html">关于</a></li>
             <li id="message"><a href="http://bowuting.com/index/message/index.html">留言</a></li>
-            <li ><a href="http://bowuting.com/index/login/index.html">管理</a></li>
+            <li id="admin"><a href="http://bowuting.com/index/login/index.html">管理</a></li>
           </ul>
-          <form action="{:url('index/index')}" method="post" class="navbar-form navbar-left" role="search">
+          <form action="{:url('index/allpost')}" method="post" class="navbar-form navbar-right" role="search">
             <div class="form-group">
               <input name="find" type="text" class="form-control" placeholder="文章标题查找">
             </div>
             <button type="submit" class="btn btn-default">Search</button>
           </form>
-
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
   </nav>
