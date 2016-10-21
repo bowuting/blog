@@ -1,60 +1,119 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-	<meta charset="UTF-8">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-	<title>bowuting's Home Page</title>
-	<link rel="icon" href="/static/img/icon.png">
-	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
-	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>bowuting's Home Page</title>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+        <link rel="icon" href="/static/img/icon.png">
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/blog.css">
+        <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
 
-	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/blog.css">
-	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/com.css">
-	<style media="screen">
-		#index{
-			color: #555;
-			cursor: default;
-			background-color: #eee;
-			border: 1px solid #ddd;
-			border-bottom-color: transparent;
-		}
-	</style>
+        </script>
+        <!-- <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/com.css"> -->
+        <style media="screen">
+            #main{
+
+                background-size:100%;
+                background-repeat: no-repeat;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main" style="display:none;" >
+            <div class="container">
+                    <div style="height:50px;"class="">
+
+                    </div>
+                    <div style="margin-left:150px;"class="">
+                        {include file="../application/blog/view/default/public/blogheader.html" /}
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="well well-sm">
+                                    <h4 ><a style="margin-left:20px;margin-right:20px;" href="http://bowuting.com/blog/index/allpost.html">博客</a>
+                                         <a style="margin-right:20px;" href="http://bowuting.com/blog/index/about.html">关于</a>
+                                         本博客的所有代码：<a href="https://github.com/bowuting/blog">GitHub</a>
+                                    </h4>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- <h3 id="time"></h3> -->
+
+
+            </div>
+
+
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        var  s = "";
+        var  s = "";
+        // s += "\r\n网页可见区域宽："+ document.body.clientWidth;
+        // s += "\r\n网页可见区域高："+ document.body.clientHeight;
+        // s += "\r\n网页可见区域宽："+ document.body.offsetWidth  +" (包括边线和滚动条的宽)";
+        // s += "\r\n网页可见区域高："+ document.body.offsetHeight +" (包括边线的宽)";
+        // s += "\r\n网页正文全文宽："+ document.body.scrollWidth;
+        // s += "\r\n网页正文全文高："+ document.body.scrollWidth;
+        // s += "\r\n网页被卷去的高："+ document.body.scrollTop;
+        // s += "\r\n网页被卷去的左："+ document.body.scrollLeft;
+        // s += "\r\n网页正文部分上："+ window.screenTop;
+        // s += "\r\n网页正文部分左："+ window.screenLeft;
+        // s += "\r\n屏幕分辨率的高："+ window.screen.height;
+        // s += "\r\n屏幕分辨率的宽："+ window.screen.width;
+        // s += "\r\n屏幕可用工作区高度："+ window.screen.availHeight;
+        // s += "\r\n屏幕可用工作区宽度："+ window.screen.availWidth;
+        // s += "\r\n你的屏幕设置是 "+ window.screen.colorDepth +" 位彩色";
+        // s += "\r\n你的屏幕设置 "+ window.screen.deviceXDPI +" 像素/英寸";
+
+        var w = document.body.scrollWidth;
+        var h = document.body.scrollWidth;
+        // console.log(h);
+        w = w + 'px';
+        h = h + 'px';
+        document.getElementById('main').style.width = w;
+        document.getElementById('main').style.height = h;
 
 
 
-		{include file="../application/index/view/default/public/header.html" /}
-
-	<body>
-		<div class="container">
-			<hr>
-			<div class="">
-				<!-- <img id="img"class="img-responsive" src="/static/img/index-1.jpeg"  alt="" /> -->
-				<img id="img"class="img-responsive" src=""  alt="" />
-
-			</div>
-
-		</div>
-		<hr>
-		{include file="../application/index/view/default/public/footer.html" /}
-
-	</body>
-	<script type="text/javascript">
-	// function change() {
-
-		var r = Math.ceil(Math.random()*2);
+        var r = Math.ceil(Math.random()*42);
 		var arr=new Array();
-		arr[1]="http://file.bowuting.com/index-2.jpeg";
-		arr[2]="http://file.bowuting.com/index-2.jpeg";
+        for (var i = 1; i < 43; i++) {
+            arr[i] = "http://file.bowuting.com/index/"+ i +".jpg";
+        }
 
+        // setTimeout('window.location.href="http://bowuting.com/blog/index/allpost.html"',4000);
+
+        function timedCount(){
+
+            r = Math.ceil(Math.random()*42);
+
+            $("#main").fadeToggle(5000);
+            $("#main").fadeToggle(5000);
+            document.getElementById('main').style.backgroundImage = "url("+arr[r]+")";
+
+            setTimeout("timedCount()",10000)
+        }
+         timedCount();
+
+
+
+
+        // console.log(arr);
+
+        console.log(r);
 		// console.log(arr[r]);
 
 
-		document.getElementById('img').src = arr[r];
-
-	// }
+		document.getElementById('main').style.backgroundImage = "url("+arr[r]+")";
 
 
 
-	</script>
+
+    </script>
 </html>

@@ -1,0 +1,28 @@
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module sidebar-module-inset">
+
+        <p>芝兰生于深谷 不以无人而不芳</p>
+        <p>君子修身养德 不以穷困而改志</p>
+
+    </div>
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ol class="list-unstyled">
+
+        {foreach name="date" item="vo" }
+            <p>
+                <a href="{:url('index/month_post?month=' . $vo )}">{$vo}</a>
+            </p>
+        {/foreach}
+
+    </ol>
+  </div>
+  <div class="sidebar-module">
+    <h4>Elsewhere</h4>
+    <ol class="list-unstyled">
+      <li><a href="http://github.com/bowuting">GitHub</a></li>
+      <li><a href="http://weibo.com/bowuting">Weibo</a></li>
+      <li><a href="Mailto:bowuting@qq.com">Email</a></li>
+    </ol>
+  </div>
+</div>

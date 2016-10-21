@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <title>bowuting's Home Page</title>
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/blog.css">
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/com.css">
+        <link rel="icon" href="/static/img/icon.png">
+        <style media="screen">
+
+        #allpost{
+            color: #555;
+            cursor: default;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            border-bottom-color: transparent;
+        }
+
+
+        </style>
+    </head>
+
+    {include file="../application/blog/view/default/public/header.html" /}
+
+    <body>
+        <div class="container">
+                    <!-- <ul  class="nav nav-tabs " role="tablist">
+                      <li role="presentation" class="active"><a href="http://bowuting.com">日志</a></li>
+                      <li role="presentation"><a href="{:url('photo')}">相册</a></li>
+                      <li role="presentation"><a href="{:url('about')}">关于</a></li>
+                      <li role="presentation"><a href="{:url('message')}">留言</a></li>
+                      <li role="presentation"><a href="{:url('login/index')}">管理</a></li>
+                    </ul> -->
+
+                    <hr>
+
+            <div class="row">
+                <div class="col-sm-8 blog-main">
+
+                        {volist name="data" id="da"}
+
+                            <div class="blog-post">
+                                <h2 class="blog-post-title "><a href="{:url('post?post_id=' . $da->getData('post_id'))}">{$da->getData('post_title')}</a></h2>
+                                <p class="blog-post-meta"> {$da->getData('create_time')|date="Y-m-d H:i:s",###} </p>
+
+                            </div>
+                        {/volist}
+                        {$data->render()}
+                </div>
+
+                {include file="../application/blog/view/default/public/right.html" /}
+
+
+            </div>
+
+            </div>
+        </body>
+
+{include file="../application/blog/view/default/public/footer.html" /}
+
+</html>

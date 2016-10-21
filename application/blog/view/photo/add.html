@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>bowuting's Home Page</title>
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/blog.css">
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/com.css">
+        <link rel="icon" href="/static/img/icon.png">
+    </head>
+    <body>
+        <form action="upload" enctype="multipart/form-data" method="post">
+            <input type="hidden" name="cat" value="{$_GET['cat']}">
+            <input type="text" name="photo_name" value="">
+            <input type="text" name="photo_content" value="">
+            <input type="file" name="image" /> <br>
+            <input type="submit" value="上传" />
+        </form>
+    </body>
+</html>
