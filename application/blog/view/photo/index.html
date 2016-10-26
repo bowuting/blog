@@ -32,17 +32,12 @@
 
             <hr>
 
-            <form class=" form-inline" role="form" action="add_cat" method="post">
-                      <div class="form-group">
-                        <label class="" for="exampleInputEmail2"><h4>新建相册</h4></label>
-                        <input type="text" name="photo_cat_name"class="form-control" id="exampleInputEmail2" placeholder="相册名称">
-                        <input type="text" name="photo_cat_content"class="form-control" id="exampleInputEmail2" placeholder="相册描述">
+            {if ( null !== session('name'))}
+                {include file="../application/blog/view/default/public/add_cat.html" /}
 
-                      </div>
+            {/if}
 
-                      <button type="submit" class="btn btn-success">提交</button>
-            </form>
-            <hr>
+
 
 
 
@@ -52,10 +47,10 @@
 
                     <div class="col-sm-3 blog-main">
                         <div style="height:180px;"class="">
-                            <a href="{:url('photo?cat=') . $vo}"><img style="width:210px;height:180px;"src="http://file.bowuting.com/index-1.jpeg" alt="" /></a>
+                            <a href="{:url('photo?cat=') . $vo['photo_cat_name']}"><img style="width:210px;height:180px;"src="{$vo['photo_cat_url']}" alt="" /></a>
                         </div>
                         <p class="text-center">
-                            {$vo}
+                            {$vo['photo_cat_name']}
                         </p>
                     </div>
 
